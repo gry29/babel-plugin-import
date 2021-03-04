@@ -3,6 +3,7 @@ import Plugin from './Plugin';
 
 export default function ({ types }) {
   let plugins = null;
+  const codeVisitor = {};
 
   // Only for test
   // eslint-disable-next-line no-underscore-dangle
@@ -109,9 +110,10 @@ export default function ({ types }) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const method of methods) {
-    ret.visitor[method] = function () {
+    codeVisitor[method] = ret.visitor[method] = function () {
       // eslint-disable-line
       applyInstance(method, arguments, ret.visitor); // eslint-disable-line
+      path.traverse(codeVisitor, arguments[1]); // eslint-disable-line
     };
   }
 
