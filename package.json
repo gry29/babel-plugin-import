@@ -2,35 +2,13 @@
   "name": "babel-plugin-import",
   "version": "1.13.3",
   "description": "Component modular import plugin for babel.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/babel-plugin-import"
-  },
   "main": "lib/index.js",
   "scripts": {
-    "build": "webpack",
     "test": "umi-test --coverage",
     "debug": "umi-test",
     "lint": "eslint --ext .js src",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prepack": "npm run build",
-    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint",
-      "prettier --write"
-    ]
-  },
-  "keywords": [
-    "babel-plugin",
-    "antd"
-  ],
   "author": "chencheng <sorrycc@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -67,12 +45,6 @@
       "umi"
     ]
   },
-  "files": [
-    "src",
-    "lib",
-    "package.json",
-    "README.md"
-  ],
   "dependencies": {
     "@babel/helper-module-imports": "^7.0.0",
     "@babel/runtime": "^7.0.0"
